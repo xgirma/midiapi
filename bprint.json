@@ -35,7 +35,7 @@
     "data": {}
   },
   "POST /api/v1/channels": {
-    "desc": "add channels",
+    "desc": "add channel",
     "response": "200 application/json",
     "data": {}
   }

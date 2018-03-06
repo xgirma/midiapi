@@ -1,0 +1,23 @@
+{
+  "JavascriptJabber": "http://feeds.feedburner.com/JavascriptJabber",
+  "theWebPlatform": "https://thewebplatform.libsyn.com/rss",
+  "HashBang": "https://rss.simplecast.com/podcasts/2601/rss",
+  "myJsStory": "https://feeds.feedwrench.com/my-js-story.rss",
+  "syntax": "https://feed.syntax.fm/rss",
+  "talesFromTheScript": "https://rss.simplecast.com/podcasts/3216/rss",
+  "jsParty": "https://changelog.com/jsparty/feed",
+  "theReactPodcast": "http://www.spreaker.com/show/2824367/episodes/feed",
+  "javascriptAir": "http://audio.javascriptair.com/feed/",
+  "fullStackRadio": "https://rss.simplecast.com/podcasts/279/rss",
+  "vueNews": "https://vuenews.fireside.fm/rss",
+  "shopTalkShow": "http://shoptalkshow.com/feed/podcast/",
+  "codeNewbie": "http://feeds.codenewbie.org/cnpodcast.xml",
+  "changeLog": "https://changelog.com/podcast/feed",
+  "modernWeb": "http://modernweb.podbean.com/feed/",
+  "frontendFive": "https://frontendfive.codeschool.com/feed.rss",
+  "codePen": "https://blog.codepen.io/feed/podcast/",
+  "webAhead": "http://feeds.5by5.tv/webahead",
+  "softwareEngineeringDaily": "http://softwareengineeringdaily.com/feed/podcast/",
+  "NodeUp": "http://feeds.feedburner.com/NodeUp",
+  "fullStackJavascriptPodcast": "http://fullstackjavascriptpodcast.com/feed/podcast/"
+}
