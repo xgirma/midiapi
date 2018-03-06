@@ -1,9 +1,3 @@
-# midiapi
-
-mlab: Sandbox databases do not have redundancy and therefore are not suitable for production.
-
-## Blueprint 
-```json
 {
   "GET /api/v1": {
     "desc": "returns ok",
@@ -46,4 +40,3 @@ mlab: Sandbox databases do not have redundancy and therefore are not suitable fo
     "data": {}
   }
 }
-```
