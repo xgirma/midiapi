@@ -5,8 +5,8 @@ mlab: Sandbox databases do not have redundancy and therefore are not suitable fo
 ## Blueprint 
 ```json
 {
-  "GET /api/v1": {
-    "desc": "returns ok",
+  "GET /api/v1/ping": {
+    "desc": "returns pong",
     "response": "200 application/json",
     "data": {}
   },

@@ -1,6 +1,6 @@
 {
-  "GET /api/v1": {
-    "desc": "returns ok",
+  "GET /api/v1/ping": {
+    "desc": "returns pong",
     "response": "200 application/json",
     "data": {}
   },
