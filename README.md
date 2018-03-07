@@ -8,7 +8,7 @@ mlab: Sandbox databases do not have redundancy and therefore are not suitable fo
   "GET /api/v1": {
     "desc": "returns ok",
     "response": "200 application/json",
-    "date": {}
+    "data": {}
   },
   "GET /api/v1/pods": {
     "desc": "returns all podcasts",

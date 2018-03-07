@@ -2,7 +2,7 @@
   "GET /api/v1": {
     "desc": "returns ok",
     "response": "200 application/json",
-    "date": {}
+    "data": {}
   },
   "GET /api/v1/pods": {
     "desc": "returns all podcasts",
@@ -51,7 +51,7 @@
     "data": {}
   },
   "POST /api/v1/channels": {
-    "desc": "add channel",
+    "desc": "add a channel",
     "response": "200 application/json",
     "data": {}
   }

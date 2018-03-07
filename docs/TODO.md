@@ -16,3 +16,5 @@
  
 - verify if there is any video media, if not use only an audio player
 
+- investigate best way for error handling: good example if a post is a dup, what kind of error should be logged: what status messgae should be send 
+
