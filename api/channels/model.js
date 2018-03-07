@@ -12,11 +12,7 @@ var ChannelsSchema = new Schema({
 		required: true,
 		unique: true
 	},
-	description_short: {
-		type: String,
-		required: false
-	},
-	description_long: {
+	description: {
 		type: String,
 		required: false
 	},
@@ -24,11 +20,11 @@ var ChannelsSchema = new Schema({
 		type: String,
 		required: false
 	},
-	owner_name: {
+	author: {
 		type: String,
 		required: false
 	},
-	owner_email: {
+	copyright: {
 		type: String,
 		required: false
 	}

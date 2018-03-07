@@ -1,80 +1,60 @@
 var Channels = require('./model');
-var request = require('request');
-var parser = require('node-podcast-parser');
+var pp = require('podchoosee-parser');
 
-exports.get = function(req, res, next){
+exports.get = function (req, res, next) {
 	Channels.find({})
-		.then( function(channels) {
-			res.json(channels);
-		}, function(err){
+		.then(function (pods) {
+			res.json(pods);
+		}, function (err) {
 			next(err);
 		});
 };
 
-exports.post = function(req, res, next){
-	var feed = req.query.url;
+function ifExist(value){
+	if(typeof value !== 'undefined'){
+		return value;
+	}
+}
 
+exports.post = function (req, res, next) {
+	var feed = req.query.url;
 	var title = undefined;
 	var link = undefined;
-	var description_short = undefined;
-	var description_long = undefined;
+	var description = undefined;
 	var image = undefined;
-	var owner_name = undefined;
-	var owner_email = undefined;
+	var author = undefined;
+	var copyright = undefined;
 	
-	request(feed, function (err, resp, data) {
-		if (err) {
-			console.error(err);
-			return;
-		}
-		parser(data, function (err, data) {
-			if (err) {
-				console.error(err);
-				return;
-			}
-			
-			const temp = data.title;
-			title = temp.replace('/', '-');
-			link = data.link;
-			
-			if (data.description.short){ description_short = data.description.short; }
-			if (data.description.long){ description_long = data.description.long; }
-			if (data.image) { image = data.image; }
-			
-			if (data.owner) {
-				if (data.owner.name) {
-					owner_name = data.owner.name;
-				}
-				if (data.owner.email) {
-					owner_email = data.owner.email
+	pp.getSubscriptionPromise(feed, {skip: -1, take: -1, parseSub: true})
+		.done(function (data) {
+			title = ifExist(data.subscription.title);
+			link = ifExist(data.subscription.websiteUrl);
+			description = ifExist(data.subscription.description);
+			if(typeof description === 'undefined' || description === '\n      '){
+				description = ifExist(data.subscription.summary);
+				if(typeof description === 'undefined' || description === '\n      '){
+					description = ifExist(data.subscription.subtitle);
 				}
 			}
-			
-			if (data.owner) {
-				if (data.owner.name) {
-					owner_name = data.owner.name;
-				}
-				if (data.owner.email) {
-					owner_email = data.owner.email
-				}
-			}
+			image = ifExist(data.subscription.iTunesImageUrl);
+			author = ifExist(data.subscription.author);
+			copyright = ifExist(data.subscription.copyright);
 			
 			var channel = {
-				title: title,
-				link: link,
-				description_short: description_short,
-				description_long: description_long,
-				image: image,
-				owner_name: owner_name,
-				owner_email: owner_email
+				title,
+				link,
+				description,
+				image,
+				author,
+				copyright
 			};
 			
 			Channels.create(channel)
 				.then(function(newChannel){
 					res.json(newChannel);
-				}, function(err){
+				},function(err){
+					console.log('err', err);
 					next(err);
 				});
 		});
-	});
 };

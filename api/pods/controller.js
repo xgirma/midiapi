@@ -48,8 +48,6 @@ exports.post = function (req, res, next) {
 			author = ifExist(data.subscription.author);
 			copyright = ifExist(data.subscription.copyright);
 			
-			console.log(data.episodes.length);
-			
 			for(let i = 0; i < data.episodes.length; i += 1){
 				episode_title = ifExist(data.episodes[i].title);
 				episode_description = ifExist(data.episodes[i].description);
@@ -80,8 +78,7 @@ exports.post = function (req, res, next) {
 			}
 			Pods.insertMany(pods, { ordered: false }, function(err, docs){
 				if(err){
-					console.error(err);
-					res.json(err);
+					next(err);
 				} else {
 					res.json(docs);
 				}
