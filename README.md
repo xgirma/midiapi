@@ -41,7 +41,7 @@ mlab: Sandbox databases do not have redundancy and therefore are not suitable fo
     "data": {}
   },
   "POST /api/v1/channels": {
-    "desc": "add channel",
+    "desc": "add a channel",
     "response": "200 application/json",
     "data": {}
   }
@@ -50,4 +50,5 @@ mlab: Sandbox databases do not have redundancy and therefore are not suitable fo
 
 Examples: 
 
-    localhost:3000/api/v1/channels?url=http://feeds.twit.tv/sn_video_hd.xml
+    localhost:3000/api/v1/channels?url=https://feed.syntax.fm/rss
+    localhost:3000/api/v1/pods?url=https://feed.syntax.fm/rss
