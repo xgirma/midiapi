@@ -7,22 +7,38 @@
   "GET /api/v1/pods": {
     "desc": "returns all podcasts",
     "response": "200 application/json",
-    "data": [{},{},{}]
+    "data": [
+      {},
+      {},
+      {}
+    ]
   },
   "GET /api/v1/channels": {
     "desc": "returns all channels",
     "response": "200 application/json",
-    "data": [{},{},{}]
+    "data": [
+      {},
+      {},
+      {}
+    ]
   },
   "GET /api/v1/pods/ten/:type": {
     "desc": "returns ten pods by popularity or recency",
     "response": "200 application/json",
-    "data": [{},{},{}]
+    "data": [
+      {},
+      {},
+      {}
+    ]
   },
   "GET /api/v1/pods/ten/:title/:type": {
     "desc": "returns ten pods from a single channel by popularity or recency",
     "response": "200 application/json",
-    "data": [{},{},{}]
+    "data": [
+      {},
+      {},
+      {}
+    ]
   },
   "PUT /api/v1/pods/:id": {
     "desc": "increment like count of a pod liked by a user",
