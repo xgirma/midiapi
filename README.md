@@ -13,22 +13,52 @@ mlab: Sandbox databases do not have redundancy and therefore are not suitable fo
   "GET /api/v1/pods": {
     "desc": "returns all podcasts",
     "response": "200 application/json",
-    "data": [{},{},{}]
+    "data": [
+      {},
+      {},
+      {}
+    ]
   },
   "GET /api/v1/channels": {
     "desc": "returns all channels",
     "response": "200 application/json",
-    "data": [{},{},{}]
+    "data": [
+      {},
+      {},
+      {}
+    ]
   },
-  "GET /api/v1/pods/ten/:type": {
-    "desc": "returns ten pods by popularity or recency",
+  "GET /api/v1/pods/like?id=id": {
+    "desc": "increment like by one and return updated pod",
     "response": "200 application/json",
-    "data": [{},{},{}]
+    "data": {}
+  },
+  "GET /api/v1/pods/ten/popular": {
+    "desc": "returns ten pods by popular pods of all time and channel",
+    "response": "200 application/json",
+    "data": [
+      {},
+      {},
+      {}
+    ]
+  },
+  "GET /api/v1/pods/ten/recent": {
+    "desc": "returns ten recent pods of all time and channel",
+    "response": "200 application/json",
+    "data": [
+      {},
+      {},
+      {}
+    ]
   },
   "GET /api/v1/pods/ten/:title/:type": {
     "desc": "returns ten pods from a single channel by popularity or recency",
     "response": "200 application/json",
-    "data": [{},{},{}]
+    "data": [
+      {},
+      {},
+      {}
+    ]
   },
   "PUT /api/v1/pods/:id": {
     "desc": "increment like count of a pod liked by a user",

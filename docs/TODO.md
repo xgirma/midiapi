@@ -20,6 +20,8 @@
 
 - make sure heroku config:set NODE_ENV="production" is set, by checking the response for badRequest, if not set it.
 
+- reinserting - crashes the app and app recovered using forever.
+
 # Used
 
     Forever
@@ -32,4 +34,4 @@
     Github pages
     
     
-
+# delete this

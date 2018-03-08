@@ -22,8 +22,22 @@
       {}
     ]
   },
-  "GET /api/v1/pods/ten/:type": {
-    "desc": "returns ten pods by popularity or recency",
+  "GET /api/v1/pods/like?id=id": {
+    "desc": "increment like by one and return updated pod",
+    "response": "200 application/json",
+    "data": {}
+  },
+  "GET /api/v1/pods/ten/popular": {
+    "desc": "returns ten pods by popular pods of all time and channel",
+    "response": "200 application/json",
+    "data": [
+      {},
+      {},
+      {}
+    ]
+  },
+  "GET /api/v1/pods/ten/recent": {
+    "desc": "returns ten recent pods of all time and channel",
     "response": "200 application/json",
     "data": [
       {},
