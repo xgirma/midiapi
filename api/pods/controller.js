@@ -11,7 +11,7 @@ exports.get = function (req, res, next) {
     });
 };
 
-/* GET 10 popular pods of all time and channels */
+/* GET 10 popular pods of all times and channels */
 exports.popular = function (req, res, next) {
   Pods.find()
     .sort({'likes': -1})
@@ -24,7 +24,7 @@ exports.popular = function (req, res, next) {
     });
 };
 
-/* GET 10 recent pods of all time and channels */
+/* GET 10 recent pods of all times and channels */
 exports.recent = function (req, res, next) {
   Pods.find()
     .sort({'published': -1})
@@ -36,6 +36,35 @@ exports.recent = function (req, res, next) {
       res.status(200).json({data: pods})
     });
 };
+
+/* GET 10 popular pods of a channels */
+exports.channelPopular = function (req, res, next) {
+  var channelTitle = req.query.title;
+  Pods.find({'title': channelTitle})
+    .sort({'likes': -1})
+    .limit(10)
+    .exec(function (err, pods) {
+      if(err){
+        return next(err)
+      }
+      res.status(200).json({data: pods})
+    });
+};
+
+/* GET 10 recent pods of a channels */
+exports.channelRecent = function (req, res, next) {
+  var channelTitle = req.query.title;
+  Pods.find({'title': channelTitle})
+    .sort({'published': -1})
+    .limit(10)
+    .exec(function (err, pods) {
+      if(err){
+        return next(err)
+      }
+      res.status(200).json({data: pods})
+    });
+};
+
 /* POST like a pod */
 exports.like = function (req, res, next) {
   var podId = req.query.id;

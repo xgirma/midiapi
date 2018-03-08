@@ -9,7 +9,6 @@
     "response": "200 application/json",
     "data": [
       {},
-      {},
       {}
     ]
   },
@@ -18,44 +17,43 @@
     "response": "200 application/json",
     "data": [
       {},
-      {},
       {}
     ]
   },
-  "GET /api/v1/pods/like?id=id": {
-    "desc": "increment like by one and return updated pod",
-    "response": "200 application/json",
-    "data": {}
-  },
   "GET /api/v1/pods/ten/popular": {
-    "desc": "returns ten pods by popular pods of all time and channel",
+    "desc": "returns ten popular pods of all times and channels",
     "response": "200 application/json",
     "data": [
-      {},
       {},
       {}
     ]
   },
   "GET /api/v1/pods/ten/recent": {
-    "desc": "returns ten recent pods of all time and channel",
+    "desc": "returns ten recent pods of all times and channels",
     "response": "200 application/json",
     "data": [
-      {},
       {},
       {}
     ]
   },
-  "GET /api/v1/pods/ten/:title/:type": {
-    "desc": "returns ten pods from a single channel by popularity or recency",
+  "GET /api/v1/pods/ten/popular?channel=channel": {
+    "desc": "returns ten popular pods of a given channel",
     "response": "200 application/json",
     "data": [
-      {},
       {},
       {}
     ]
   },
-  "PUT /api/v1/pods/:id": {
-    "desc": "increment like count of a pod liked by a user",
+  "GET /api/v1/pods/ten/recent?channel=channel": {
+    "desc": "returns ten recent pods of a given channel",
+    "response": "200 application/json",
+    "data": [
+      {},
+      {}
+    ]
+  },
+  "PUT /api/v1/pods/like?id=id": {
+    "desc": "increment like by one and return updated pod",
     "response": "200 application/json",
     "data": {}
   },
