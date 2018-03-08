@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "start:nodemon": "DEBUG=express:* nodemon ./bin/www",
     "start:nodemon:dev": "NODE_ENV=development DEBUG=express:* nodemon ./bin/www",
-    "start:forever:prod": "NODE_ENV=production forever ./bin/www"
+    "start:forever:prod": "NODE_ENV=production forever -m 5 ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
