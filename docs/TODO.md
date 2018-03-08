@@ -20,3 +20,16 @@
 
 - make sure heroku config:set NODE_ENV="production" is set, by checking the response for badRequest, if not set it.
 
+# Used
+
+    Forever
+    Boom
+    Express
+    MongoDB
+    Mongoose
+    mLab (free tire)
+    Heroku (free tire)
+    Github pages
+    
+    
+
