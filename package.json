@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "start:nodemon": "nodemon ./bin/www",
     "start:nodemon:dev": "NODE_ENV=development nodemon ./bin/www",
-    "start:nodemon:prod": "NODE_ENV=production nodemon ./bin/www"
+    "start:nodemon:prod": "NODE_ENV=production forever ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
@@ -15,10 +15,13 @@
     "cors": "^2.8.4",
     "debug": "~2.6.9",
     "express": "~4.15.5",
+    "forever": "^0.15.3",
+    "install": "^0.10.4",
     "method-override": "^2.3.10",
     "mongoose": "^5.0.9",
     "morgan": "~1.9.0",
     "nodemon": "^1.17.1",
+    "npm": "^5.7.1",
     "podchoosee-parser": "^0.2.0",
     "pug": "2.0.0-beta11",
     "request": "^2.83.0",
