@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "start:nodemon": "nodemon ./bin/www",
-    "start:nodemon:dev": "NODE_ENV=development nodemon ./bin/www",
-    "start:nodemon:prod": "NODE_ENV=production forever ./bin/www"
+    "start:nodemon": "DEBUG=express:* nodemon ./bin/www",
+    "start:nodemon:dev": "NODE_ENV=development DEBUG=express:* nodemon ./bin/www",
+    "start:forever:prod": "NODE_ENV=production forever ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
