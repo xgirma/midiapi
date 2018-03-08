@@ -4,10 +4,13 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "start:nodemon": "nodemon ./bin/www"
+    "start:nodemon": "nodemon ./bin/www",
+    "start:nodemon:dev": "NODE_ENV=development nodemon ./bin/www",
+    "start:nodemon:prod": "NODE_ENV=production nodemon ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
+    "boom": "^7.2.0",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
     "debug": "~2.6.9",

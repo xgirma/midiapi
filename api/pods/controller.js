@@ -1,6 +1,7 @@
 var Pods = require('./model');
 var pp = require('podchoosee-parser');
 
+/* GET all pods */
 exports.get = function (req, res, next) {
   Pods.find({})
     .then(function (pods) {
@@ -16,7 +17,9 @@ function ifExist(value) {
   }
 }
 
+/* POST pods */
 exports.post = function (req, res, next) {
+  // channel details
   var feed = req.query.url;
   var title = undefined;
   var link = undefined;
@@ -24,7 +27,7 @@ exports.post = function (req, res, next) {
   var image = undefined;
   var author = undefined;
   var copyright = undefined;
-  
+  // episode details
   var episode_title = undefined;
   var episode_description = undefined;
   var published = undefined;

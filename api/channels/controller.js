@@ -1,6 +1,8 @@
+var Boom = require('boom');
 var Channels = require('./model');
 var pp = require('podchoosee-parser');
 
+/* GET all channels detail*/
 exports.get = function (req, res, next) {
   Channels.find({})
     .then(function (pods) {
@@ -16,6 +18,7 @@ function ifExist(value) {
   }
 }
 
+/* POST a single channel detail */
 exports.post = function (req, res, next) {
   var feed = req.query.url;
   var title = undefined;
@@ -53,7 +56,6 @@ exports.post = function (req, res, next) {
         .then(function (newChannel) {
           res.json({data: newChannel});
         }, function (err) {
-          console.log('err', err);
           next(err);
         });
     });

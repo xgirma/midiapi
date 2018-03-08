@@ -16,5 +16,7 @@
  
 - verify if there is any video media, if not use only an audio player
 
-- investigate best way for error handling: good example if a post is a dup, what kind of error should be logged: what status messgae should be send 
+- investigate best way for error handling: good example if a post is a dup, what kind of error should be logged: what status message should be send 
+
+- make sure heroku config:set NODE_ENV="production" is set, by checking the response for badRequest, if not set it.
 
