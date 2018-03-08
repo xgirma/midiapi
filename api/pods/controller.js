@@ -80,7 +80,7 @@ exports.post = function (req, res, next) {
         if (err) {
           next(err);
         } else {
-          res.json(docs);
+          res.status(200).json({data: docs});
         }
       });
     });

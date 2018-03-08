@@ -51,7 +51,7 @@ exports.post = function (req, res, next) {
       
       Channels.create(channel)
         .then(function (newChannel) {
-          res.json(newChannel);
+          res.json({data: newChannel});
         }, function (err) {
           console.log('err', err);
           next(err);
