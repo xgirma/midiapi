@@ -11,6 +11,18 @@ exports.get = function (req, res, next) {
     });
 };
 
+/* POST like a pod */
+exports.like = function(req, res, next) {
+  var podId = req.query.id;
+  Pods.update({_id: podId},
+    {$inc: {likes: 1}}, function(err, doc){
+    if(err){
+      return next(err);
+    }
+    res.status(200).json({doc});
+  });
+};
+
 function ifExist(value) {
   if (typeof value !== 'undefined') {
     return value;
