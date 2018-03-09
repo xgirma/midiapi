@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose')
+var Schema = mongoose.Schema
 
 var PodSchema = new Schema({
   title: {type: String, required: true},
@@ -14,6 +14,6 @@ var PodSchema = new Schema({
   url: {type: String, required: true, unique: true},
   media_type: {type: String, required: false},
   likes: {type: Number, required: false}
-});
+})
 
-module.exports = mongoose.model('pod', PodSchema);
+module.exports = mongoose.model('pod', PodSchema)

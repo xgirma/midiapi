@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose')
+var Schema = mongoose.Schema
 
 var ChannelsSchema = new Schema({
   title: {type: String, required: true, unique: true},
@@ -8,6 +8,6 @@ var ChannelsSchema = new Schema({
   image: {type: String, required: false},
   author: {type: String, required: false},
   copyright: {type: String, required: false}
-});
+})
 
-module.exports = mongoose.model('channel', ChannelsSchema);
+module.exports = mongoose.model('channel', ChannelsSchema)

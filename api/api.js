@@ -1,9 +1,9 @@
-var router = require('express').Router();
+var router = require('express').Router()
 
-router.use('/ping', router.get('/', function(req, res, next){
-  res.status(200).json({ data: { message: "pong"}});
-}));
-router.use('/channels', require('./channels/routes'));
-router.use('/pods', require('./pods/routes'));
+router.use('/ping', router.get('/', function (req, res, next) {
+  res.status(200).json({data: {message: 'pong'}})
+}))
+router.use('/channels', require('./channels/routes'))
+router.use('/pods', require('./pods/routes'))
 
-module.exports = router;
+module.exports = router

@@ -29,9 +29,11 @@
     Express
     MongoDB
     Mongoose
-    mLab (free tire)
+    mLab (free tire: one db and three collections)
     Heroku (free tire)
     Github pages
+    StandardJS
+    Winston - transports (express-winston & winston-mongodb) to mLab
     
     
 # delete this
