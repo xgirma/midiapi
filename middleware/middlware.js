@@ -7,6 +7,11 @@ var winstonExpress = require('express-winston')
 require('winston-mongodb')
 
 module.exports = function (app) {
+  app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader('Access-Control-Allow-Methods', 'GET')
+    next()
+  })
   app.use(morgan('dev'))
   app.use(bodyParser.urlencoded({extended: true}))
   app.use(bodyParser.json())
@@ -25,9 +30,4 @@ module.exports = function (app) {
     meta: false,
     msg: 'HTTP: {{req.method}} {{req.url}} | STATUS: {{res.statusCode}} | TIME: {{res.responseTime}}ms'
   }))
-  app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*')
-    res.setHeader('Access-Control-Allow-Methods', 'GET')
-    next()
-  })
 }
