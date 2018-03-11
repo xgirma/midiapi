@@ -12,10 +12,14 @@ module.exports = function (app) {
     res.setHeader('Access-Control-Allow-Methods', 'GET')
     next()
   })
+  app.use(cors({
+    "origin": "*",
+    "methods": "GET"
+  }))
   app.use(morgan('dev'))
   app.use(bodyParser.urlencoded({extended: true}))
   app.use(bodyParser.json())
-  // app.use(cors())
+  app.use(cors())
   app.use(override())
   app.use(winstonExpress.logger({
     transport: [
