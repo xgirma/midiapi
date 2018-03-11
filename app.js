@@ -4,7 +4,7 @@ var app = express()
 var api = require('./api/api')
 
 require('mongoose').connect(process.env.MIDI_DB)
-require('./middleware/middlware')
+require('./middleware/middlware')(app)
 
 app.use('/api/v1', api)
 
