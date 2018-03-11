@@ -13,10 +13,7 @@ module.exports = function (app) {
     res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next()
   })
-  app.use(cors({
-    "origin": "*",
-    "methods": "GET"
-  }))
+  app.use(cors())
   app.use(morgan('dev'))
   app.use(bodyParser.urlencoded({extended: true}))
   app.use(bodyParser.json())
