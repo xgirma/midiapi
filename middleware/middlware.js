@@ -25,4 +25,9 @@ module.exports = function (app) {
     meta: false,
     msg: 'HTTP: {{req.method}} {{req.url}} | STATUS: {{res.statusCode}} | TIME: {{res.responseTime}}ms'
   }))
+  app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
+    res.setHeader('Access-Control-Allow-Methods', 'GET')
+    next()
+  })
 }
