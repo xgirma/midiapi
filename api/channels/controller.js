@@ -4,11 +4,13 @@ var pp = require('podchoosee-parser')
 /* GET all channels detail */
 exports.get = function (req, res, next) {
   Channels.find({})
-    .then(function (pods) {
-      res.json(pods)
-    }, function (err) {
-      next(err)
-    })
+    .sort({'title': 1})
+    .exec(function (err, channels) {
+      if (err) {
+        return next(err)
+      }
+      res.status(200).json({data: channels})
+    });
 }
 
 function ifExist (value) {
