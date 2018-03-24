@@ -1,9 +1,9 @@
 var router = require('express').Router()
 var controller = require('./controller')
 
-router.route('/')
-  .get(controller.get)
-  .post(controller.post)
+router.route('/').get(controller.get)
+router.route('/').post(controller.post)
+router.route('/').put(controller.post)
 
 router.route('/like').put(controller.like)
 router.route('/ten/popular').get(controller.popular)

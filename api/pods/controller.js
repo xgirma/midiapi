@@ -92,6 +92,7 @@ exports.post = function (req, res, next) {
   var episodeTitle, episodeDescription, published, url, mediaType
   var likes = 0
   var pods = []
+  var error = []
 
   pp.getSubscriptionPromise(feed, {skip: -1, take: -1, parseSub: true})
     .done(function (data) {
@@ -131,17 +132,27 @@ exports.post = function (req, res, next) {
             mediaType,
             likes
           }
-          pods.push(new Pods(pod))
+
+          var query = { published: published, episodeTitle: episodeTitle }
+
+          Pods.findOneAndUpdate(query, pod, {upsert: true}, function (err, docs) {
+            if (err) {
+              console.log('err: ', err)
+              error.push(err)
+            }
+
+            pods.push(new Pods(pod))
+            console.log('docs: ', docs)
+          })
         } catch (err) {
           return console.error(err)
         }
       }
-      Pods.insertMany(pods, {ordered: false}, function (err, docs) {
-        if (err) {
-          next(err)
-        } else {
-          res.status(200).json({data: docs})
-        }
-      })
+
+      if (error.length > 0) {
+        res.status(400).json({data: {message: 'Error inserting or updating'}})
+      } else {
+        res.status(200).json({data: pods})
+      }
     })
 }

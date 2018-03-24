@@ -10,7 +10,7 @@ exports.get = function (req, res, next) {
         return next(err)
       }
       res.status(200).json({data: channels})
-    });
+    })
 }
 
 function ifExist (value) {
