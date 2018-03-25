@@ -17,7 +17,7 @@ module.exports = function (app) {
       new winston.transports.MongoDB({
         db: process.env.MIDI_DB,
         collection: 'log',
-        storeHost: true,
+        storeHost: true
       })
     ],
     meta: true,

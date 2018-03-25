@@ -139,7 +139,6 @@ exports.post = function (req, res, next) {
             if (err) {
               error.push(err)
             }
-
             pods.push(new Pods(pod))
           })
         } catch (err) {

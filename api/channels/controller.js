@@ -58,7 +58,7 @@ exports.post = function (req, res, next) {
             return next(err)
           })
       } else {
-        return next({ message: 'Can Not Parse Feed.'})
+        return next({message: 'Can Not Parse Feed.'})
       }
     })
     .catch(function (err) {
