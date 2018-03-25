@@ -137,15 +137,13 @@ exports.post = function (req, res, next) {
 
           Pods.findOneAndUpdate(query, pod, {upsert: true}, function (err, docs) {
             if (err) {
-              console.log('err: ', err)
               error.push(err)
             }
 
             pods.push(new Pods(pod))
-            console.log('docs: ', docs)
           })
         } catch (err) {
-          return console.error(err)
+          error.push(err)
         }
       }
 
@@ -154,5 +152,16 @@ exports.post = function (req, res, next) {
       } else {
         res.status(200).json({data: pods})
       }
+    })
+}
+
+/* GET return the number of channels available */
+exports.count = function (req, res, next) {
+  Pods.count()
+    .exec(function (err, count) {
+      if (err) {
+        return next(err)
+      }
+      res.status(200).json({data: count})
     })
 }
