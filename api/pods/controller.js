@@ -164,3 +164,17 @@ exports.count = function (req, res, next) {
       res.status(200).json({data: count})
     })
 }
+
+/* DELETE all pods of a given channel */
+
+exports.delete = function(req, res, next) {
+  var query = {title: req.query.title};
+  console.log('query', query);
+  Pods.remove(query)
+    .exec(function (err, deleted) {
+      if (err) {
+        return next(err)
+      }
+      res.status(200).json({data: deleted})
+    })
+}
