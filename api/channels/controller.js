@@ -66,6 +66,7 @@ exports.post = function (req, res, next) {
     })
 }
 
+/* DELETE delete a single channel */
 exports.delete = function (req, res, next) {
   var title = req.query.title
   var query = {title: title}
@@ -78,6 +79,7 @@ exports.delete = function (req, res, next) {
     })
 }
 
+/* GET return the number of channels available */
 exports.count = function (req, res, next) {
   Channels.count()
     .exec(function (err, count) {

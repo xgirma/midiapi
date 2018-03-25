@@ -12,18 +12,15 @@ module.exports = function (app) {
   app.use(bodyParser.urlencoded({extended: true}))
   app.use(bodyParser.json())
   app.use(override())
-  // TODO enable this at the end
-  // app.use(winstonExpress.logger({
-  //   transport: [
-  //     new winston.transports.MongoDB({
-  //       db: '',
-  //       collection: '',
-  //       host: '',
-  //       username: '',
-  //       password: ''
-  //     })
-  //   ],
-  //   meta: false,
-  //   msg: 'HTTP: {{req.method}} {{req.url}} | STATUS: {{res.statusCode}} | TIME: {{res.responseTime}}ms'
-  // }))
+  app.use(winstonExpress.logger({
+    transports: [
+      new winston.transports.MongoDB({
+        db: process.env.MIDI_DB,
+        collection: 'log',
+        storeHost: true,
+      })
+    ],
+    meta: true,
+    msg: 'HTTP: {{req.method}} {{req.url}} | STATUS: {{res.statusCode}} | TIME: {{res.responseTime}}ms'
+  }))
 }
