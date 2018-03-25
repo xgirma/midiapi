@@ -25,34 +25,65 @@ exports.post = function (req, res, next) {
   var title, link, description, image, author, copyright
 
   pp.getSubscriptionPromise(feed, {skip: -1, take: -1, parseSub: true})
-    .done(function (data) {
-      title = ifExist(data.subscription.title)
-      link = ifExist(data.subscription.websiteUrl)
-      description = ifExist(data.subscription.description)
-      if (typeof description === 'undefined' || description === '\n      ') {
-        description = ifExist(data.subscription.summary)
+    .then(function (data) {
+      if (data !== undefined) {
+        title = ifExist(data.subscription.title)
+        link = ifExist(data.subscription.websiteUrl)
+        description = ifExist(data.subscription.description)
         if (typeof description === 'undefined' || description === '\n      ') {
-          description = ifExist(data.subscription.subtitle)
+          description = ifExist(data.subscription.summary)
+          if (typeof description === 'undefined' || description === '\n      ') {
+            description = ifExist(data.subscription.subtitle)
+          }
         }
-      }
-      image = ifExist(data.subscription.iTunesImageUrl)
-      author = ifExist(data.subscription.author)
-      copyright = ifExist(data.subscription.copyright)
 
-      var channel = {
-        title,
-        link,
-        description,
-        image,
-        author,
-        copyright
-      }
+        image = ifExist(data.subscription.iTunesImageUrl)
+        author = ifExist(data.subscription.author)
+        copyright = ifExist(data.subscription.copyright)
 
-      Channels.create(channel)
-        .then(function (newChannel) {
-          res.json({data: newChannel})
-        }, function (err) {
-          next(err)
-        })
+        var channel = {
+          title,
+          link,
+          description,
+          image,
+          author,
+          copyright,
+          feed
+        }
+
+        Channels.create(channel)
+          .then(function (newChannel) {
+            res.status(200).json({data: newChannel})
+          }, function (err) {
+            return next(err)
+          })
+      } else {
+        return next({ message: 'Can Not Parse Feed.'})
+      }
+    })
+    .catch(function (err) {
+      return next(err)
+    })
+}
+
+exports.delete = function (req, res, next) {
+  var title = req.query.title
+  var query = {title: title}
+  Channels.deleteOne(query)
+    .exec(function (err, deleted) {
+      if (err) {
+        return next(err)
+      }
+      res.status(200).json({data: deleted})
+    })
+}
+
+exports.count = function (req, res, next) {
+  Channels.count()
+    .exec(function (err, count) {
+      if (err) {
+        return next(err)
+      }
+      res.status(200).json({data: count})
     })
 }

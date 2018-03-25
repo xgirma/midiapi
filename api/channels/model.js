@@ -7,7 +7,8 @@ var ChannelsSchema = new Schema({
   description: {type: String, required: false},
   image: {type: String, required: false},
   author: {type: String, required: false},
-  copyright: {type: String, required: false}
+  copyright: {type: String, required: false},
+  feed: {type: String, required: true, unique: true}
 })
 
 module.exports = mongoose.model('channel', ChannelsSchema)

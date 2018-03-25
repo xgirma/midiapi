@@ -25,15 +25,15 @@
 # Used
 
     Forever
-    Boom
+    Boom - (HTTP-friendly error objects)
     Express
     MongoDB
     Mongoose
-    mLab (free tire: one db and three collections)
-    Heroku (free tire)
+    mLab - (free tire)
+    Heroku - (free tire)
     Github pages
     StandardJS
-    Winston - transports (express-winston & winston-mongodb) to mLab
+    Winston - (express-winston & winston-mongodb) - send log to mLab
     
     
 # delete this
