@@ -28,6 +28,6 @@
     "winston-mongodb": "3.0.2"
   },
   "devDependencies": {
-    "standard": "11.0.0"
+    "standard": "16.0.3"
   }
 }
