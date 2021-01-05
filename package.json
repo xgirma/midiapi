@@ -10,7 +10,7 @@
     "lint": "./node_modules/.bin/standard 'api/**/**/*.js' 'middleware/*.js' 'app.js' --fix"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "body-parser": "1.18.2",
     "boom": "7.2.0",
     "cookie-parser": "1.4.3",
